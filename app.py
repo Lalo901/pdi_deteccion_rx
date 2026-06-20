@@ -324,7 +324,7 @@ def process_and_diagnose(
             indicator_color = "#38bdf8"
             
         report_html = f"""
-        <div style="max-width: 580px; margin: 0 auto; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; gap: 14px;">
+        <div style="max-width: 100%; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; gap: 14px;">
             
             <!-- Banner de Diagnóstico -->
             <div class='{class_css}' style='padding: 14px; border-radius: 10px; font-weight: 700; font-size: 15px; text-align: center; color: {indicator_color}; background-color: rgba(15, 23, 42, 0.4); border: 1.5px solid {indicator_color}35; display: flex; align-items: center; justify-content: center; gap: 4px;'>
@@ -403,7 +403,7 @@ def process_and_diagnose(
             
         report_html += """
             <div style='font-size: 10.5px; color: #6b7280; text-align: center; border-top: 1px solid #1e293b; padding-top: 10px; margin-top: 4px; line-height: 1.4;'>
-                ⚠️ <b>Disclaimer Clínico:</b> Este sistema es un prototipo con fines educativos y de investigación científica en PDI. No constituye un diagnóstico vinculante.
+                ⚠️ <b>Descargo de Responsabilidad Clínica:</b> Este sistema es un prototipo con fines educativos y de investigación científica en PDI. No constituye un diagnóstico médico vinculante.
             </div>
         </div>
         """
@@ -485,7 +485,7 @@ with gr.Blocks(title="Consola DICOM & Triaje PDI-IA") as app:
     
     with gr.Row():
         # COLUMNA IZQUIERDA: Paneles de Entrada y Controles de PDI
-        with gr.Column(scale=2, elem_classes="sidebar-panel"):
+        with gr.Column(scale=1, elem_classes="sidebar-panel"):
             
             # Selector de Entrada
             gr.HTML("<div class='section-header'>Entrada de Radiografías</div>")
@@ -563,14 +563,14 @@ with gr.Blocks(title="Consola DICOM & Triaje PDI-IA") as app:
                     original_viewer = gr.Image(
                         label="1. Radiografía Original (Con Rotación/Espejo)",
                         interactive=False,
-                        height=480,
+                        height=520,
                         elem_id="original_view"
                     )
                 with gr.Column():
                     annotated_viewer = gr.Image(
                         label="2. Radiografía Procesada + Diagnóstico IA",
                         interactive=False,
-                        height=480,
+                        height=520,
                         elem_id="annotated_view"
                     )
             
