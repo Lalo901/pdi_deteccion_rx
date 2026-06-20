@@ -127,11 +127,11 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 .gradio-container .image-container button,
 .gradio-container .image-preview button,
 .gradio-container button[class*="icon"] {
-    min-height: 51px !important;
-    min-width: 51px !important;
+    min-height: 38px !important;
+    min-width: 38px !important;
     background-color: rgba(15, 23, 42, 0.75) !important;
     border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
 }
 
 .gradio-container button.icon-button:hover,
@@ -156,11 +156,34 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 .gradio-container .image-container button svg,
 .gradio-container .image-preview button svg,
 .gradio-container button[class*="icon"] svg {
-    width: 27px !important;
-    height: 27px !important;
+    width: 20px !important;
+    height: 20px !important;
     stroke: #22d3ee !important;
     stroke-width: 2px !important;
 }
+
+/* Deshabilitar el hover azul en los componentes de imagen para que no moleste visualmente */
+.gradio-container .image-container:hover,
+.gradio-container .image-frame:hover,
+.gradio-container .block.image:hover,
+.gradio-container [data-testid="image"]:hover,
+.gradio-container .image-upload:hover,
+#original_view:hover, #annotated_view:hover,
+#user_rx_uploader:hover {
+    border-color: #1e293b !important; /* Mantiene el color original del borde oscuro */
+    background-color: transparent !important;
+}
+
+/* Fondo oscuro puro para el modo pantalla completa (fullscreen) */
+.gradio-container dialog::backdrop,
+.gradio-container .fixed.inset-0,
+.gradio-container [data-testid="image-preview-modal"],
+.gradio-container .backdrop {
+    background-color: #090d16 !important;
+    background: #090d16 !important;
+    backdrop-filter: none !important;
+}
+
 
 /* Separar la columna lateral de la zona de visualización */
 #main_layout_row {
