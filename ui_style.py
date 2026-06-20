@@ -36,9 +36,24 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     border-radius: 16px !important;
 }
 
-/* Prevenir barras de desplazamiento horizontales innecesarias en los grupos (ej. Window Leveling) */
-.gradio-container .group, .gradio-container .form {
+/* Prevenir barras de desplazamiento horizontales innecesarias en todos los contenedores y sliders */
+.gradio-container .group, 
+.gradio-container .form, 
+.gradio-container .block,
+.gradio-container .wrap,
+.gradio-container [data-testid="slider"],
+.gradio-container .slider-container {
     overflow-x: hidden !important;
+    scrollbar-width: none !important; /* Para Firefox */
+}
+
+/* Ocultar barra de scroll en Chrome/Safari/Edge/Webkit para esos contenedores */
+.gradio-container .group::-webkit-scrollbar,
+.gradio-container .form::-webkit-scrollbar,
+.gradio-container .block::-webkit-scrollbar,
+.gradio-container .wrap::-webkit-scrollbar,
+.gradio-container [data-testid="slider"]::-webkit-scrollbar {
+    display: none !important;
 }
 
 .report-panel {
