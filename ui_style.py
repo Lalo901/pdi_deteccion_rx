@@ -36,6 +36,11 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     border-radius: 16px !important;
 }
 
+/* Prevenir barras de desplazamiento horizontales innecesarias en los grupos (ej. Window Leveling) */
+.gradio-container .group, .gradio-container .form {
+    overflow-x: hidden !important;
+}
+
 .report-panel {
     background-color: #0f172a !important;
     border: 1px solid #1e293b !important;
