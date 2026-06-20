@@ -1,0 +1,27 @@
+FROM python:3.10-slim
+
+# Instalar dependencias del sistema para OpenCV y herramientas básicas
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instalar el manejador de paquetes uv de manera oficial
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+WORKDIR /app
+
+# Copiar archivos de configuración de dependencias
+COPY pyproject.toml uv.lock ./
+
+# Instalar dependencias del proyecto usando uv en el entorno global del contenedor
+RUN uv pip install --system -r pyproject.toml
+
+COPY . .
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "src/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+

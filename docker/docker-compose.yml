@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  rx-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: rx_medical_app
+    volumes:
+      - ../src:/app/src
+      - ../data:/app/data
+      - ~/.cache/huggingface:/root/.cache/huggingface # Evita re-descargar modelos DETR
+      - ~/.cache/torch:/root/.cache/torch             # Evita re-descargar EfficientNet
+    ports:
+      - "8501:8501"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OMP_NUM_THREADS=4 # Optimiza el uso de hilos de tu i7 para CPU
+    restart: unless-stopped
+

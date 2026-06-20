@@ -1,0 +1,16 @@
+[project]
+name = "deteccion-rx-mvp"
+version = "0.1.0"
+description = "MVP de detección y clasificación de fracturas en RX usando DETR y EfficientNet en CPU"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit>=1.30.0",
+    "torch>=2.1.0",
+    "torchvision>=0.16.0",
+    "transformers>=4.35.0",
+    "opencv-python-headless>=4.8.0",
+    "pillow>=10.0.0",
+    "numpy>=1.24.0",
+    "plotly>=5.18.0",
+]
+

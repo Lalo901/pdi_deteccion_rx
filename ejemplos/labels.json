@@ -1,0 +1,209 @@
+{
+    "fractura_1.jpg": {
+        "type": "fractura",
+        "initial_rotation": 0,
+        "boxes": [
+            {
+                "box": [
+                    272,
+                    393,
+                    364,
+                    423
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "fractura_2.jpg": {
+        "type": "fractura",
+        "initial_rotation": 180,
+        "boxes": [
+            {
+                "box": [
+                    305,
+                    365,
+                    373,
+                    392
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "fractura_3.jpg": {
+        "type": "fractura",
+        "initial_rotation": 0,
+        "boxes": [
+            {
+                "box": [
+                    184,
+                    203,
+                    306,
+                    242
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "fractura_4.jpg": {
+        "type": "fractura",
+        "initial_rotation": 0,
+        "boxes": [
+            {
+                "box": [
+                    316,
+                    412,
+                    489,
+                    462
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "fractura_5.jpg": {
+        "type": "fractura",
+        "initial_rotation": 180,
+        "boxes": [
+            {
+                "box": [
+                    475,
+                    469,
+                    497,
+                    485
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "fractura_6.jpg": {
+        "type": "fractura",
+        "initial_rotation": 0,
+        "boxes": [
+            {
+                "box": [
+                    286,
+                    335,
+                    396,
+                    408
+                ],
+                "label": "FRACTURA"
+            },
+            {
+                "box": [
+                    290,
+                    425,
+                    407,
+                    495
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "fractura_7.jpg": {
+        "type": "fractura",
+        "initial_rotation": 0,
+        "boxes": [
+            {
+                "box": [
+                    218,
+                    306,
+                    271,
+                    327
+                ],
+                "label": "FRACTURA"
+            },
+            {
+                "box": [
+                    289,
+                    298,
+                    353,
+                    312
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "fractura_8.jpg": {
+        "type": "fractura",
+        "initial_rotation": 180,
+        "boxes": [
+            {
+                "box": [
+                    324,
+                    315,
+                    374,
+                    413
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "fractura_9.jpg": {
+        "type": "fractura",
+        "initial_rotation": 0,
+        "boxes": [
+            {
+                "box": [
+                    370,
+                    442,
+                    405,
+                    462
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "fractura_10.jpg": {
+        "type": "fractura",
+        "initial_rotation": 0,
+        "boxes": [
+            {
+                "box": [
+                    243,
+                    313,
+                    303,
+                    465
+                ],
+                "label": "FRACTURA"
+            },
+            {
+                "box": [
+                    317,
+                    292,
+                    425,
+                    460
+                ],
+                "label": "FRACTURA"
+            }
+        ]
+    },
+    "sano_1.jpg": {
+        "type": "sano",
+        "initial_rotation": 180,
+        "boxes": []
+    },
+    "sano_2.jpg": {
+        "type": "sano",
+        "initial_rotation": 0,
+        "boxes": []
+    },
+    "sano_3.jpg": {
+        "type": "sano",
+        "initial_rotation": 0,
+        "boxes": []
+    },
+    "sano_4.jpg": {
+        "type": "sano",
+        "initial_rotation": 180,
+        "boxes": []
+    },
+    "sano_5.jpg": {
+        "type": "sano",
+        "initial_rotation": 0,
+        "boxes": []
+    },
+    "neonato_clavicula.jpeg": {
+        "type": "sano",
+        "initial_rotation": 0,
+        "boxes": []
+    }
+}
