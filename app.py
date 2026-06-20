@@ -476,7 +476,7 @@ with gr.Blocks(title="Consola DICOM & Triaje PDI-IA") as app:
             """)
         with gr.Column(scale=1, min_width=180):
             gr.HTML("""
-            <div style="background-color: rgba(30, 41, 59, 0.4); border: 1px solid #1e293b; border-radius: 10px; padding: 10px 14px; font-size: 11.5px; color: #94a3b8; text-align: right; line-height: 1.5; font-family: 'Inter', sans-serif; max-width: 170px; margin-left: auto; box-sizing: border-box;">
+            <div style="background-color: rgba(30, 41, 59, 0.4); border: 1px solid #1e293b; border-radius: 10px; padding: 10px 14px; font-size: 11.5px; color: #94a3b8; text-align: left; line-height: 1.5; font-family: 'Inter', sans-serif; max-width: 170px; margin-left: auto; box-sizing: border-box;">
                 <div><b>Materia:</b> PDI — IFTS24</div>
                 <div><b>Alumno:</b> Eduardo Farfán</div>
                 <div style="color: #38bdf8; font-weight: 600; margin-top: 2px;">⚡ MVP Spaces</div>

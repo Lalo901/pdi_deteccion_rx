@@ -40,6 +40,8 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     background-color: #0f172a !important;
     border: 1px solid #1e293b !important;
     padding: 20px !important;
+    max-width: 700px !important; /* Limitar el ancho para que no tome las 2 rx */
+    margin: 0 auto !important;   /* Centrar el contenedor del reporte */
 }
 .sidebar-panel {
     background-color: #0b0f19 !important;
@@ -165,17 +167,17 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     gap: 22px !important;
 }
 
-/* Posicionar botones de utilidades en una fila horizontal ARRIBA de la imagen, sin ensuciar la RX */
+/* Posicionar botones de utilidades en una columna a la derecha, fuera de la RX */
 .gradio-container .image-container .button-layout,
 .gradio-container .image-preview .button-layout,
 .gradio-container .image-container div[style*="flex-direction: row"],
 .gradio-container .image-container div[class*="button_layout"] {
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
     gap: 8px !important;
     position: absolute !important;
-    top: -50px !important; /* Desplazado arriba del marco de la imagen */
-    right: 4px !important;
+    top: 10px !important; 
+    right: -60px !important; /* Desplazado a la derecha fuera del marco de la imagen */
     left: auto !important;
     bottom: auto !important;
     z-index: 50 !important;
@@ -191,12 +193,22 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     overflow: visible !important;
 }
 
+#original_view, #annotated_view {
+    margin-right: 65px !important; /* Espacio para los botones a la derecha */
+}
+
+#original_view {
+    margin-left: 2px !important; /* 2px de separación con el panel izquierdo */
+}
+
 /* Forzar que el zoom y la imagen respeten el borde interno sin salirse al hacer zoom */
 #original_view div.image-frame, #annotated_view div.image-frame,
 #original_view .image-container > div:first-child, #annotated_view .image-container > div:first-child,
 #original_view [data-testid="image-container"], #annotated_view [data-testid="image-container"] {
     overflow: hidden !important;
     border-radius: 12px !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /* Forzar orden de botones: Fullscreen (1), Descargar (2), Compartir (3) */
