@@ -193,19 +193,19 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 /* Posicionar botones de utilidades en una columna a la derecha, fuera de la RX */
 .gradio-container .image-container .button-layout,
 .gradio-container .image-preview .button-layout,
-.gradio-container .image-container div[style*="flex-direction: row"],
-.gradio-container .image-container div[class*="button_layout"] {
+.gradio-container .image-container div[class*="button_layout"],
+.gradio-container .image-preview > div > div:last-child:has(button) {
     display: flex !important;
     flex-direction: column !important;
     gap: 8px !important;
     position: absolute !important;
     top: 10px !important; 
-    right: -60px !important; /* Desplazado a la derecha fuera del marco de la imagen */
+    right: -45px !important; /* Desplazado a la derecha fuera del marco de la imagen */
     left: auto !important;
     bottom: auto !important;
     z-index: 50 !important;
     height: auto !important;
-    width: auto !important;
+    width: 40px !important;
     background: transparent !important;
 }
 
@@ -217,7 +217,8 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 }
 
 #original_view, #annotated_view {
-    margin-right: 65px !important; /* Espacio para los botones a la derecha */
+    margin-right: 50px !important; /* Espacio para los botones a la derecha */
+    margin-bottom: 20px !important;
 }
 
 #original_view {
@@ -226,12 +227,9 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 
 /* Forzar que el zoom y la imagen respeten el borde interno sin salirse al hacer zoom */
 #original_view div.image-frame, #annotated_view div.image-frame,
-#original_view .image-container > div:first-child, #annotated_view .image-container > div:first-child,
-#original_view [data-testid="image-container"], #annotated_view [data-testid="image-container"] {
+#original_view .image-container > div:first-child, #annotated_view .image-container > div:first-child {
     overflow: hidden !important;
     border-radius: 12px !important;
-    width: 100% !important;
-    height: 100% !important;
 }
 
 /* Forzar orden de botones: Fullscreen (1), Descargar (2), Compartir (3) */
