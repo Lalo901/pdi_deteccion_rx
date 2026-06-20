@@ -167,16 +167,15 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     --focus-border-color: #1e293b !important;
 }
 
+/* Eliminar bordes azules al pasar el mouse por los contenedores, sin hacer el fondo transparente */
 .gradio-container .image-container:hover,
 .gradio-container .image-frame:hover,
 .gradio-container .block.image:hover,
 .gradio-container [data-testid="image"]:hover,
 .gradio-container .image-upload:hover,
-.gradio-container .image-preview:hover,
 #original_view:hover, #annotated_view:hover,
 #user_rx_uploader:hover {
     border-color: #1e293b !important;
-    background-color: transparent !important;
     box-shadow: none !important;
 }
 
@@ -197,12 +196,7 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     border-color: transparent !important;
 }
 
-/* Evitar hover azul en los contenedores internos del fullscreen sin romper el fondo oscuro */
-.gradio-container dialog .image-container:hover,
-.gradio-container dialog .image-preview:hover,
-.gradio-container .fixed.inset-0 .image-container:hover {
-    background-color: transparent !important;
-}
+
 
 /* Alinear el footer (Usar via API) con el inicio de la caja del informe clínico */
 .gradio-container footer, footer {
@@ -219,23 +213,20 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     gap: 22px !important;
 }
 
-/* Posicionar botones de utilidades en una columna a la derecha, fuera de la RX */
-.gradio-container .image-container .button-layout,
-.gradio-container .image-preview .button-layout,
-.gradio-container .image-container div[class*="button_layout"],
-.gradio-container .image-preview > div > div:last-child:has(button) {
+/* Posicionar botones de utilidades usando un selector SEGURO que busca el botón exacto */
+.gradio-container .image-container div:has(> button[aria-label*="expand" i]),
+.gradio-container .image-preview div:has(> button[aria-label*="expand" i]),
+.gradio-container .block.image div:has(> button[aria-label*="download" i]) {
     display: flex !important;
     flex-direction: column !important;
     gap: 8px !important;
     position: absolute !important;
     top: 10px !important; 
-    right: -45px !important; /* Desplazado a la derecha fuera del marco de la imagen */
+    right: -45px !important; /* Afuera de la imagen */
     left: auto !important;
     bottom: auto !important;
-    z-index: 50 !important;
-    height: auto !important;
-    width: 40px !important;
     background: transparent !important;
+    z-index: 50 !important;
 }
 
 /* Evitar recortar los botones que sobresalen del contenedor de la imagen */
@@ -243,11 +234,6 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 #original_view .image-container, #annotated_view .image-container,
 #original_view .image-preview, #annotated_view .image-preview {
     overflow: visible !important;
-}
-
-#original_view, #annotated_view {
-    margin-right: 50px !important; /* Espacio para los botones a la derecha */
-    margin-bottom: 20px !important;
 }
 
 #original_view {
