@@ -123,10 +123,7 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 .gradio-container button[aria-label*="zoom" i],
 .gradio-container button[aria-label*="expand" i],
 .gradio-container button.download-button,
-.gradio-container button.share-button,
-.gradio-container .image-container button,
-.gradio-container .image-preview button,
-.gradio-container button[class*="icon"] {
+.gradio-container button.share-button {
     min-height: 38px !important;
     min-width: 38px !important;
     background-color: rgba(15, 23, 42, 0.75) !important;
@@ -139,8 +136,8 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 .gradio-container button[aria-label*="share" i]:hover,
 .gradio-container button[aria-label*="zoom" i]:hover,
 .gradio-container button[aria-label*="expand" i]:hover,
-.gradio-container .image-container button:hover,
-.gradio-container .image-preview button:hover {
+.gradio-container button.download-button:hover,
+.gradio-container button.share-button:hover {
     background-color: rgba(14, 165, 233, 0.4) !important;
     border-color: #0ea5e9 !important;
     box-shadow: 0 0 10px rgba(14, 165, 233, 0.5) !important;
@@ -152,10 +149,7 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 .gradio-container button[aria-label*="zoom" i] svg,
 .gradio-container button[aria-label*="expand" i] svg,
 .gradio-container button.download-button svg,
-.gradio-container button.share-button svg,
-.gradio-container .image-container button svg,
-.gradio-container .image-preview button svg,
-.gradio-container button[class*="icon"] svg {
+.gradio-container button.share-button svg {
     width: 20px !important;
     height: 20px !important;
     stroke: #22d3ee !important;
