@@ -197,12 +197,10 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     border-color: transparent !important;
 }
 
-/* Evitar hover azul en los contenedores internos del fullscreen (el fondo de la img rx) */
+/* Evitar hover azul en los contenedores internos del fullscreen sin romper el fondo oscuro */
 .gradio-container dialog .image-container:hover,
 .gradio-container dialog .image-preview:hover,
-.gradio-container .fixed.inset-0 .image-container:hover,
-.gradio-container .fixed.inset-0 > div:hover,
-.gradio-container .fixed.inset-0 *:hover {
+.gradio-container .fixed.inset-0 .image-container:hover {
     background-color: transparent !important;
 }
 
