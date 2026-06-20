@@ -113,6 +113,81 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     margin-right: 8px;
     box-shadow: 0 0 8px #10b981;
 }
+
+/* Agrandar botones de utilidades (descarga, compartir, zoom, pantalla completa) en los visualizadores */
+.gradio-container button.icon-button,
+.gradio-container button[aria-label*="download" i],
+.gradio-container button[aria-label*="share" i],
+.gradio-container button[aria-label*="zoom" i],
+.gradio-container button[aria-label*="expand" i],
+.gradio-container button.download-button,
+.gradio-container button.share-button,
+.gradio-container .image-container button,
+.gradio-container .image-preview button,
+.gradio-container button[class*="icon"] {
+    min-height: 52px !important;
+    min-width: 52px !important;
+    background-color: rgba(15, 23, 42, 0.75) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 10px !important;
+}
+
+.gradio-container button.icon-button:hover,
+.gradio-container button[aria-label*="download" i]:hover,
+.gradio-container button[aria-label*="share" i]:hover,
+.gradio-container button[aria-label*="zoom" i]:hover,
+.gradio-container button[aria-label*="expand" i]:hover,
+.gradio-container .image-container button:hover,
+.gradio-container .image-preview button:hover {
+    background-color: rgba(14, 165, 233, 0.4) !important;
+    border-color: #0ea5e9 !important;
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.5) !important;
+}
+
+.gradio-container button.icon-button svg,
+.gradio-container button[aria-label*="download" i] svg,
+.gradio-container button[aria-label*="share" i] svg,
+.gradio-container button[aria-label*="zoom" i] svg,
+.gradio-container button[aria-label*="expand" i] svg,
+.gradio-container button.download-button svg,
+.gradio-container button.share-button svg,
+.gradio-container .image-container button svg,
+.gradio-container .image-preview button svg,
+.gradio-container button[class*="icon"] svg {
+    width: 28px !important;
+    height: 28px !important;
+    stroke: #22d3ee !important;
+    stroke-width: 2px !important;
+}
+
+/* Reducir tamaño del contenedor de carga de radiografía externa */
+#user_rx_uploader {
+    max-width: 240px !important;
+    margin: 0 auto !important;
+    border-radius: 12px !important;
+    border: 1.5px dashed rgba(255, 255, 255, 0.15) !important;
+    overflow: hidden !important;
+}
+#user_rx_uploader > div {
+    min-height: 140px !important;
+    max-height: 180px !important;
+}
+#user_rx_uploader [data-testid="image-container"] {
+    max-height: 180px !important;
+}
+#user_rx_uploader [data-testid="file-upload"] {
+    padding: 10px !important;
+}
+#user_rx_uploader button {
+    padding: 4px 8px !important;
+}
+#user_rx_uploader .upload-container {
+    height: 150px !important;
+}
+#user_rx_uploader img {
+    max-height: 160px !important;
+    object-fit: contain !important;
+}
 """
 
 # JavaScript para el zoom y paneo interactivo en el navegador

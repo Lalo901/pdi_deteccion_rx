@@ -332,54 +332,84 @@ def process_and_diagnose(
             </div>
             
             <!-- Tabla de Parámetros -->
-            <table style='width: 100%; border-collapse: separate; border-spacing: 0; margin: 10px 0; font-size: 13px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); font-family: "Inter", sans-serif;'>
+            <table style='width: 100%; border-collapse: separate; border-spacing: 0; margin: 10px 0; font-size: 12.5px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); background-color: rgba(15, 23, 42, 0.3); font-family: "Inter", sans-serif;'>
                 
                 <!-- Fila de Cabecera (Header Row) -->
-                <tr style='background-color: rgba(255, 255, 255, 0.08);'>
-                    <th style='padding: 12px 16px; font-weight: 700; color: #0ea5e9; text-align: left; text-transform: uppercase; letter-spacing: 0.75px; border-bottom: 2px solid #0ea5e9; font-size: 11px;'>Módulo / Parámetro</th>
-                    <th style='padding: 12px 16px; font-weight: 700; color: #0ea5e9; text-align: right; text-transform: uppercase; letter-spacing: 0.75px; border-bottom: 2px solid #0ea5e9; font-size: 11px;'>Configuración / Valor</th>
-                </tr>
-                
-                <!-- Fila 1 (Par) -->
                 <tr style='background-color: rgba(255, 255, 255, 0.04);'>
-                    <td style='padding: 11px 16px; font-weight: 500; color: #e2e8f0; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>Tipo de Paciente:</td>
-                    <td style='padding: 11px 16px; text-align: right; font-weight: 600; color: #38bdf8; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>{"Neonatal / Pediátrico" if is_example else "Externo (Carga Libre)"}</td>
+                    <th style='padding: 10px 14px; font-weight: 600; color: #94a3b8; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid rgba(255, 255, 255, 0.1); font-size: 10px;'>ID</th>
+                    <th style='padding: 10px 14px; font-weight: 600; color: #94a3b8; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid rgba(255, 255, 255, 0.1); font-size: 10px;'>Parámetro</th>
+                    <th style='padding: 10px 14px; font-weight: 600; color: #94a3b8; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid rgba(255, 255, 255, 0.1); font-size: 10px;'>Estado</th>
+                    <th style='padding: 10px 14px; font-weight: 600; color: #94a3b8; text-align: right; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid rgba(255, 255, 255, 0.1); font-size: 10px;'>Configuración</th>
                 </tr>
                 
-                <!-- Fila 2 (Impar) -->
-                <tr style='background-color: rgba(255, 255, 255, 0.01);'>
-                    <td style='padding: 11px 16px; font-weight: 500; color: #e2e8f0; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>Orientación Placa:</td>
-                    <td style='padding: 11px 16px; text-align: right; font-weight: 600; color: #38bdf8; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>{rotation_str} {"(Modo Espejo)" if mirror else ""}</td>
+                <!-- Fila 1 -->
+                <tr style='background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
+                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>CLIN-01</span></td>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Tipo de Paciente</td>
+                    <td style='padding: 10px 14px; text-align: center;'>
+                        {"<span style='background-color: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(16, 185, 129, 0.15);'>CONTROL</span>" if is_example else "<span style='background-color: rgba(245, 158, 11, 0.12); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(245, 158, 11, 0.15);'>EXTERNO</span>"}
+                    </td>
+                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{"Neonatal / Pediátrico" if is_example else "Externo"}</td>
                 </tr>
                 
-                <!-- Fila 3 (Par) -->
-                <tr style='background-color: rgba(255, 255, 255, 0.04);'>
-                    <td style='padding: 11px 16px; font-weight: 500; color: #e2e8f0; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>Escala de Zoom:</td>
-                    <td style='padding: 11px 16px; text-align: right; font-weight: 600; color: #38bdf8; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>{zoom:.1f}x</td>
+                <!-- Fila 2 -->
+                <tr style='background-color: transparent; border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
+                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>GEOM-02</span></td>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Orientación Placa</td>
+                    <td style='padding: 10px 14px; text-align: center;'>
+                        {f"<span style='background-color: rgba(14, 165, 233, 0.12); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(14, 165, 233, 0.15);'>AJUSTADO</span>" if (rotation_str != "0°" or mirror) else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>ORIGINAL</span>"}
+                    </td>
+                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{rotation_str} {"(Espejo)" if mirror else ""}</td>
                 </tr>
                 
-                <!-- Fila 4 (Impar) -->
-                <tr style='background-color: rgba(255, 255, 255, 0.01);'>
-                    <td style='padding: 11px 16px; font-weight: 500; color: #e2e8f0; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>Ventana DICOM (W / L):</td>
-                    <td style='padding: 11px 16px; text-align: right; font-weight: 600; color: #38bdf8; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>{window} / {level}</td>
+                <!-- Fila 3 -->
+                <tr style='background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
+                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>GEOM-03</span></td>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Zoom Digital</td>
+                    <td style='padding: 10px 14px; text-align: center;'>
+                        {f"<span style='background-color: rgba(14, 165, 233, 0.12); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(14, 165, 233, 0.15);'>ZOOM-{zoom:.1f}x</span>" if zoom > 1.0 else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>SIN ZOOM</span>"}
+                    </td>
+                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{zoom:.1f}x</td>
                 </tr>
                 
-                <!-- Fila 5 (Par) -->
-                <tr style='background-color: rgba(255, 255, 255, 0.04);'>
-                    <td style='padding: 11px 16px; font-weight: 500; color: #e2e8f0; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>Filtro de Ruido:</td>
-                    <td style='padding: 11px 16px; text-align: right; font-weight: 600; color: #38bdf8; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>Gaussiano</td>
+                <!-- Fila 4 -->
+                <tr style='background-color: transparent; border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
+                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>DICOM-04</span></td>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Ventana DICOM (W / L)</td>
+                    <td style='padding: 10px 14px; text-align: center;'>
+                        {f"<span style='background-color: rgba(14, 165, 233, 0.12); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(14, 165, 233, 0.15);'>CALIBRADO</span>" if (window != 100 or level != 180) else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>ESTÁNDAR</span>"}
+                    </td>
+                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>W={window} / L={level}</td>
                 </tr>
                 
-                <!-- Fila 6 (Impar) -->
-                <tr style='background-color: rgba(255, 255, 255, 0.01);'>
-                    <td style='padding: 11px 16px; font-weight: 500; color: #e2e8f0; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>CLAHE Local:</td>
-                    <td style='padding: 11px 16px; text-align: right; font-weight: 600; color: #38bdf8; border-bottom: 1px solid rgba(255, 255, 255, 0.06);'>Clip={clahe_clip:.1f}, Rejilla={clahe_grid}x{clahe_grid}</td>
+                <!-- Fila 5 -->
+                <tr style='background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
+                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>FILT-05</span></td>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Filtro de Ruido</td>
+                    <td style='padding: 10px 14px; text-align: center;'>
+                        {f"<span style='background-color: rgba(139, 92, 246, 0.12); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(139, 92, 246, 0.15);'>GAUSSIANO</span>" if gaussian_blur > 0 else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>DESACTIVADO</span>"}
+                    </td>
+                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{f"Kernel {gaussian_blur}x{gaussian_blur}" if gaussian_blur > 0 else "Apagado"}</td>
                 </tr>
                 
-                <!-- Fila 7 (Par) -->
-                <tr style='background-color: rgba(255, 255, 255, 0.04);'>
-                    <td style='padding: 11px 16px; font-weight: 500; color: #e2e8f0; text-align: left;'>Realce Gradiente:</td>
-                    <td style='padding: 11px 16px; text-align: right; font-weight: 600; color: #38bdf8;'>{edge_filter} (Ganancia={edge_alpha:.2f})</td>
+                <!-- Fila 6 -->
+                <tr style='background-color: transparent; border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
+                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>CONT-06</span></td>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Contraste CLAHE</td>
+                    <td style='padding: 10px 14px; text-align: center;'>
+                        {f"<span style='background-color: rgba(236, 72, 153, 0.12); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(236, 72, 153, 0.15);'>ACTIVO</span>" if clahe_clip > 0.0 else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>DESACTIVADO</span>"}
+                    </td>
+                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{f"Clip={clahe_clip:.1f}, Rejilla={clahe_grid}x{clahe_grid}" if clahe_clip > 0 else "Apagado"}</td>
+                </tr>
+                
+                <!-- Fila 7 -->
+                <tr style='background-color: rgba(255, 255, 255, 0.02);'>
+                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>ENH-07</span></td>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Realce de Bordes</td>
+                    <td style='padding: 10px 14px; text-align: center;'>
+                        {f"<span style='background-color: rgba(6, 182, 212, 0.12); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(6, 182, 212, 0.15);'>REALZADO</span>" if edge_alpha > 0.0 else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>DESACTIVADO</span>"}
+                    </td>
+                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{f"{edge_filter} (a={edge_alpha:.2f})" if edge_alpha > 0 else "Apagado"}</td>
                 </tr>
             </table>
         """
@@ -387,7 +417,7 @@ def process_and_diagnose(
         # Advertencia o recomendación clínica para cargas libres
         if not is_example:
             report_html += """
-            <div style='padding: 12px; border-radius: 8px; background-color: rgba(30, 41, 59, 0.3); border: 1px solid #33415540; font-size: 12px; color: #94a3b8; line-height: 1.4; text-align: left;'>
+            <div style='padding: 14px; border-radius: 10px; background-color: rgba(30, 41, 59, 0.3); border: 1px solid rgba(51, 65, 85, 0.25); font-size: 12px; color: #cbd5e1; line-height: 1.5; text-align: center; max-width: 95%; margin: 0 auto;'>
                 💡 <b>Guía de Triage para Imágenes Externas:</b><br/>
                 La localización automática por Bounding Box interactivo está reservada para el dataset de control. 
                 Utilice el realce de bordes <b>Laplaciano</b> (Ganancia 0.35 - 0.50) para verificar discontinuidades en la corteza ósea de forma visual.
@@ -395,15 +425,18 @@ def process_and_diagnose(
             """
         else:
             report_html += """
-            <div style='padding: 12px; border-radius: 8px; background-color: rgba(30, 27, 75, 0.3); border: 1px solid #312e8140; font-size: 12px; color: #a5b4fc; line-height: 1.4; text-align: left;'>
+            <div style='padding: 14px; border-radius: 10px; background-color: rgba(30, 27, 75, 0.35); border: 1px solid rgba(49, 46, 129, 0.3); font-size: 12px; color: #a5b4fc; line-height: 1.5; text-align: center; max-width: 95%; margin: 0 auto;'>
                 🎯 <b>Localización Activa:</b><br/>
                 El Bounding Box clínico muestra la ubicación exacta de la sospecha en la base de datos científica. Puede rotar la placa y la caja se adaptará.
             </div>
             """
             
         report_html += """
-            <div style='font-size: 10.5px; color: #6b7280; text-align: center; border-top: 1px solid #1e293b; padding-top: 10px; margin-top: 4px; line-height: 1.4;'>
-                ⚠️ <b>Descargo de Responsabilidad Clínica:</b> Este sistema es un prototipo con fines educativos y de investigación científica en PDI. No constituye un diagnóstico médico vinculante.
+            <div style='font-size: 11px; color: #6b7280; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px; margin-top: 12px; line-height: 1.5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; max-width: 90%; margin: 0 auto;'>
+                <div style="font-size: 16px; margin-bottom: 2px;">⚠️</div>
+                <div>
+                    <b>Descargo de Responsabilidad Clínica:</b><br/>Este sistema es un prototipo con fines educativos y de investigación científica en PDI. No constituye un diagnóstico médico vinculante.
+                </div>
             </div>
         </div>
         """
@@ -501,7 +534,9 @@ with gr.Blocks(title="Consola DICOM & Triaje PDI-IA") as app:
                     upload_input = gr.Image(
                         label="Cargar archivo RX (Drag & Drop / Explorar)",
                         type="numpy",
-                        sources=["upload"]
+                        sources=["upload"],
+                        height=180,
+                        elem_id="user_rx_uploader"
                     )
             
             gr.HTML("<hr style='border: 0; height: 1px; background: #1f2937; margin: 15px 0;'/>")
@@ -563,14 +598,14 @@ with gr.Blocks(title="Consola DICOM & Triaje PDI-IA") as app:
                     original_viewer = gr.Image(
                         label="1. Radiografía Original (Con Rotación/Espejo)",
                         interactive=False,
-                        height=520,
+                        height=620,
                         elem_id="original_view"
                     )
                 with gr.Column():
                     annotated_viewer = gr.Image(
                         label="2. Radiografía Procesada + Diagnóstico IA",
                         interactive=False,
-                        height=520,
+                        height=620,
                         elem_id="annotated_view"
                     )
             
@@ -632,9 +667,23 @@ with gr.Blocks(title="Consola DICOM & Triaje PDI-IA") as app:
         outputs=all_outputs
     )
 
-    # Rastrear qué pestaña está seleccionada para cambiar el comportamiento del backend
-    tab_gallery.select(fn=lambda: "gallery", inputs=None, outputs=source_tab)
-    tab_upload.select(fn=lambda: "upload", inputs=None, outputs=source_tab)
+    # Rastrear qué pestaña está seleccionada para cambiar el comportamiento del backend y las dimensiones de los visores
+    def on_select_gallery():
+        return "gallery", gr.update(height=620), gr.update(height=620)
+        
+    def on_select_upload():
+        return "upload", gr.update(height=450), gr.update(height=450)
+
+    tab_gallery.select(
+        fn=on_select_gallery,
+        inputs=None,
+        outputs=[source_tab, original_viewer, annotated_viewer]
+    )
+    tab_upload.select(
+        fn=on_select_upload,
+        inputs=None,
+        outputs=[source_tab, original_viewer, annotated_viewer]
+    )
 
     # Evento para auto-rotar y reiniciar zoom en ejemplos cuando cambian
     def auto_adjust_example(example_name):
