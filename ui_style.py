@@ -162,16 +162,28 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     stroke-width: 2px !important;
 }
 
-/* Deshabilitar el hover azul en los componentes de imagen para que no moleste visualmente */
+/* Deshabilitar completamente los efectos azules de Gradio mediante variables CSS y reglas forzadas */
+.gradio-container .block.image,
+#original_view, #annotated_view, #user_rx_uploader,
+.gradio-container dialog {
+    --border-color-accent: #1e293b !important;
+    --border-color-accent-subdued: #1e293b !important;
+    --color-accent: transparent !important;
+    --hover-border-color: #1e293b !important;
+    --focus-border-color: #1e293b !important;
+}
+
 .gradio-container .image-container:hover,
 .gradio-container .image-frame:hover,
 .gradio-container .block.image:hover,
 .gradio-container [data-testid="image"]:hover,
 .gradio-container .image-upload:hover,
+.gradio-container .image-preview:hover,
 #original_view:hover, #annotated_view:hover,
 #user_rx_uploader:hover {
-    border-color: #1e293b !important; /* Mantiene el color original del borde oscuro */
+    border-color: #1e293b !important;
     background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 /* Fondo oscuro puro y constante para el modo pantalla completa (fullscreen), incluso con hover */
@@ -191,12 +203,13 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     border-color: transparent !important;
 }
 
-/* Evitar hover en los contenedores internos del fullscreen */
+/* Evitar hover azul en los contenedores internos del fullscreen (el fondo de la img rx) */
 .gradio-container dialog .image-container:hover,
 .gradio-container dialog .image-preview:hover,
-.gradio-container .fixed.inset-0 .image-container:hover {
+.gradio-container .fixed.inset-0 .image-container:hover,
+.gradio-container .fixed.inset-0 > div:hover,
+.gradio-container .fixed.inset-0 *:hover {
     background-color: transparent !important;
-    border-color: transparent !important;
 }
 
 /* Alinear el footer (Usar via API) con el inicio de la caja del informe clínico */
