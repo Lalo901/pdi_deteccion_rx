@@ -160,22 +160,43 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     stroke-width: 2px !important;
 }
 
-/* Alinear botones del visor de imagen en una columna vertical en el margen derecho */
+/* Separar la columna lateral de la zona de visualización */
+#main_layout_row {
+    gap: 22px !important;
+}
+
+/* Posicionar botones de utilidades en una fila horizontal ARRIBA de la imagen, sin ensuciar la RX */
 .gradio-container .image-container .button-layout,
 .gradio-container .image-preview .button-layout,
 .gradio-container .image-container div[style*="flex-direction: row"],
 .gradio-container .image-container div[class*="button_layout"] {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     gap: 8px !important;
     position: absolute !important;
-    top: 12px !important;
-    right: 12px !important;
+    top: -50px !important; /* Desplazado arriba del marco de la imagen */
+    right: 4px !important;
     left: auto !important;
     bottom: auto !important;
     z-index: 50 !important;
     height: auto !important;
     width: auto !important;
+    background: transparent !important;
+}
+
+/* Evitar recortar los botones que sobresalen del contenedor de la imagen */
+#original_view, #annotated_view,
+#original_view .image-container, #annotated_view .image-container,
+#original_view .image-preview, #annotated_view .image-preview {
+    overflow: visible !important;
+}
+
+/* Forzar que el zoom y la imagen respeten el borde interno sin salirse al hacer zoom */
+#original_view div.image-frame, #annotated_view div.image-frame,
+#original_view .image-container > div:first-child, #annotated_view .image-container > div:first-child,
+#original_view [data-testid="image-container"], #annotated_view [data-testid="image-container"] {
+    overflow: hidden !important;
+    border-radius: 12px !important;
 }
 
 /* Forzar orden de botones: Fullscreen (1), Descargar (2), Compartir (3) */
