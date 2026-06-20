@@ -174,14 +174,38 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
     background-color: transparent !important;
 }
 
-/* Fondo oscuro puro para el modo pantalla completa (fullscreen) */
+/* Fondo oscuro puro y constante para el modo pantalla completa (fullscreen), incluso con hover */
+.gradio-container dialog,
+.gradio-container dialog:hover,
 .gradio-container dialog::backdrop,
+.gradio-container dialog::backdrop:hover,
 .gradio-container .fixed.inset-0,
+.gradio-container .fixed.inset-0:hover,
 .gradio-container [data-testid="image-preview-modal"],
-.gradio-container .backdrop {
-    background-color: #090d16 !important;
-    background: #090d16 !important;
+.gradio-container [data-testid="image-preview-modal"]:hover,
+.gradio-container .backdrop,
+.gradio-container .backdrop:hover {
+    background-color: #05080f !important; /* Negro tenue constante */
+    background: #05080f !important;
     backdrop-filter: none !important;
+    border-color: transparent !important;
+}
+
+/* Evitar hover en los contenedores internos del fullscreen */
+.gradio-container dialog .image-container:hover,
+.gradio-container dialog .image-preview:hover,
+.gradio-container .fixed.inset-0 .image-container:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+/* Alinear el footer (Usar via API) con el inicio de la caja del informe clínico */
+.gradio-container footer, footer {
+    max-width: 700px !important;
+    margin: 0 auto !important;
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    border: none !important;
 }
 
 
