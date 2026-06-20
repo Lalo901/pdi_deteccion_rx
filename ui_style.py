@@ -125,8 +125,8 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 .gradio-container .image-container button,
 .gradio-container .image-preview button,
 .gradio-container button[class*="icon"] {
-    min-height: 52px !important;
-    min-width: 52px !important;
+    min-height: 51px !important;
+    min-width: 51px !important;
     background-color: rgba(15, 23, 42, 0.75) !important;
     border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
     border-radius: 10px !important;
@@ -154,10 +154,45 @@ body, .gradio-container, input, button, select, textarea, span, p, h1, h2, h3, d
 .gradio-container .image-container button svg,
 .gradio-container .image-preview button svg,
 .gradio-container button[class*="icon"] svg {
-    width: 28px !important;
-    height: 28px !important;
+    width: 27px !important;
+    height: 27px !important;
     stroke: #22d3ee !important;
     stroke-width: 2px !important;
+}
+
+/* Alinear botones del visor de imagen en una columna vertical en el margen derecho */
+.gradio-container .image-container .button-layout,
+.gradio-container .image-preview .button-layout,
+.gradio-container .image-container div[style*="flex-direction: row"],
+.gradio-container .image-container div[class*="button_layout"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    left: auto !important;
+    bottom: auto !important;
+    z-index: 50 !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+/* Forzar orden de botones: Fullscreen (1), Descargar (2), Compartir (3) */
+.gradio-container button[aria-label*="expand" i],
+.gradio-container button[aria-label*="zoom" i],
+.gradio-container button[class*="expand"] {
+    order: 1 !important;
+}
+.gradio-container button[aria-label*="download" i],
+.gradio-container button.download-button,
+.gradio-container button[class*="download"] {
+    order: 2 !important;
+}
+.gradio-container button[aria-label*="share" i],
+.gradio-container button.share-button,
+.gradio-container button[class*="share"] {
+    order: 3 !important;
 }
 
 /* Reducir tamaño del contenedor de carga de radiografía externa */

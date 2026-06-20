@@ -324,100 +324,71 @@ def process_and_diagnose(
             indicator_color = "#38bdf8"
             
         report_html = f"""
-        <div style="max-width: 100%; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; gap: 14px;">
+        <!-- Contenedor centralizado de ancho controlado (mismo tamaño) -->
+        <div style="max-width: 600px; margin: 0 auto; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; gap: 14px; width: 100%; box-sizing: border-box;">
             
             <!-- Banner de Diagnóstico -->
-            <div class='{class_css}' style='padding: 14px; border-radius: 10px; font-weight: 700; font-size: 15px; text-align: center; color: {indicator_color}; background-color: rgba(15, 23, 42, 0.4); border: 1.5px solid {indicator_color}35; display: flex; align-items: center; justify-content: center; gap: 4px;'>
+            <div class='{class_css}' style='padding: 14px; border-radius: 10px; font-weight: 700; font-size: 15px; text-align: center; color: {indicator_color}; background-color: rgba(15, 23, 42, 0.4); border: 1.5px solid {indicator_color}35; display: flex; align-items: center; justify-content: center; gap: 4px; width: 100%; box-sizing: border-box;'>
                 {class_icon} (Confianza: {diag_score*100:.2f}%)
             </div>
             
-            <!-- Tabla de Parámetros -->
-            <table style='width: 100%; border-collapse: separate; border-spacing: 0; margin: 10px 0; font-size: 12.5px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); background-color: rgba(15, 23, 42, 0.3); font-family: "Inter", sans-serif;'>
+            <!-- Tabla de Parámetros de 2 Columnas sin bordes divisores y con texto centrado -->
+            <table style='width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 12.5px; border-radius: 12px; overflow: hidden; border: none; background-color: rgba(15, 23, 42, 0.3); font-family: "Inter", sans-serif; box-sizing: border-box;'>
                 
                 <!-- Fila de Cabecera (Header Row) -->
-                <tr style='background-color: rgba(255, 255, 255, 0.04);'>
-                    <th style='padding: 10px 14px; font-weight: 600; color: #94a3b8; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid rgba(255, 255, 255, 0.1); font-size: 10px;'>ID</th>
-                    <th style='padding: 10px 14px; font-weight: 600; color: #94a3b8; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid rgba(255, 255, 255, 0.1); font-size: 10px;'>Parámetro</th>
-                    <th style='padding: 10px 14px; font-weight: 600; color: #94a3b8; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid rgba(255, 255, 255, 0.1); font-size: 10px;'>Estado</th>
-                    <th style='padding: 10px 14px; font-weight: 600; color: #94a3b8; text-align: right; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid rgba(255, 255, 255, 0.1); font-size: 10px;'>Configuración</th>
+                <tr style='background-color: rgba(255, 255, 255, 0.04); border: none;'>
+                    <th style='padding: 10px 14px; font-weight: 600; color: #cbd5e1; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; border: none;'>Módulo / Parámetro</th>
+                    <th style='padding: 10px 14px; font-weight: 600; color: #cbd5e1; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; border: none;'>Configuración / Valor</th>
                 </tr>
                 
                 <!-- Fila 1 -->
-                <tr style='background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
-                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>CLIN-01</span></td>
-                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Tipo de Paciente</td>
-                    <td style='padding: 10px 14px; text-align: center;'>
-                        {"<span style='background-color: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(16, 185, 129, 0.15);'>CONTROL</span>" if is_example else "<span style='background-color: rgba(245, 158, 11, 0.12); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(245, 158, 11, 0.15);'>EXTERNO</span>"}
-                    </td>
-                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{"Neonatal / Pediátrico" if is_example else "Externo"}</td>
+                <tr style='background-color: rgba(255, 255, 255, 0.02); border: none;'>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #94a3b8; text-align: center; border: none;'>Tipo de Paciente:</td>
+                    <td style='padding: 10px 14px; font-weight: 600; color: #38bdf8; text-align: center; border: none;'>{"Neonatal / Pediátrico" if is_example else "Externo (Carga Libre)"}</td>
                 </tr>
                 
                 <!-- Fila 2 -->
-                <tr style='background-color: transparent; border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
-                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>GEOM-02</span></td>
-                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Orientación Placa</td>
-                    <td style='padding: 10px 14px; text-align: center;'>
-                        {f"<span style='background-color: rgba(14, 165, 233, 0.12); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(14, 165, 233, 0.15);'>AJUSTADO</span>" if (rotation_str != "0°" or mirror) else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>ORIGINAL</span>"}
-                    </td>
-                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{rotation_str} {"(Espejo)" if mirror else ""}</td>
+                <tr style='background-color: transparent; border: none;'>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #94a3b8; text-align: center; border: none;'>Orientación Placa:</td>
+                    <td style='padding: 10px 14px; font-weight: 600; color: #38bdf8; text-align: center; border: none;'>{rotation_str} {"(Modo Espejo)" if mirror else ""}</td>
                 </tr>
                 
                 <!-- Fila 3 -->
-                <tr style='background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
-                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>GEOM-03</span></td>
-                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Zoom Digital</td>
-                    <td style='padding: 10px 14px; text-align: center;'>
-                        {f"<span style='background-color: rgba(14, 165, 233, 0.12); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(14, 165, 233, 0.15);'>ZOOM-{zoom:.1f}x</span>" if zoom > 1.0 else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>SIN ZOOM</span>"}
-                    </td>
-                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{zoom:.1f}x</td>
+                <tr style='background-color: rgba(255, 255, 255, 0.02); border: none;'>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #94a3b8; text-align: center; border: none;'>Escala de Zoom:</td>
+                    <td style='padding: 10px 14px; font-weight: 600; color: #38bdf8; text-align: center; border: none;'>{zoom:.1f}x</td>
                 </tr>
                 
                 <!-- Fila 4 -->
-                <tr style='background-color: transparent; border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
-                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>DICOM-04</span></td>
-                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Ventana DICOM (W / L)</td>
-                    <td style='padding: 10px 14px; text-align: center;'>
-                        {f"<span style='background-color: rgba(14, 165, 233, 0.12); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(14, 165, 233, 0.15);'>CALIBRADO</span>" if (window != 100 or level != 180) else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>ESTÁNDAR</span>"}
-                    </td>
-                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>W={window} / L={level}</td>
+                <tr style='background-color: transparent; border: none;'>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #94a3b8; text-align: center; border: none;'>Ventana DICOM (W / L):</td>
+                    <td style='padding: 10px 14px; font-weight: 600; color: #38bdf8; text-align: center; border: none;'>{window} / {level}</td>
                 </tr>
                 
                 <!-- Fila 5 -->
-                <tr style='background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
-                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>FILT-05</span></td>
-                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Filtro de Ruido</td>
-                    <td style='padding: 10px 14px; text-align: center;'>
-                        {f"<span style='background-color: rgba(139, 92, 246, 0.12); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(139, 92, 246, 0.15);'>GAUSSIANO</span>" if gaussian_blur > 0 else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>DESACTIVADO</span>"}
-                    </td>
-                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{f"Kernel {gaussian_blur}x{gaussian_blur}" if gaussian_blur > 0 else "Apagado"}</td>
+                <tr style='background-color: rgba(255, 255, 255, 0.02); border: none;'>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #94a3b8; text-align: center; border: none;'>Filtro de Ruido:</td>
+                    <td style='padding: 10px 14px; font-weight: 600; color: #38bdf8; text-align: center; border: none;'>{"Gaussiano" if gaussian_blur > 0 else "Desactivado"}</td>
                 </tr>
                 
                 <!-- Fila 6 -->
-                <tr style='background-color: transparent; border-bottom: 1px solid rgba(255, 255, 255, 0.05);'>
-                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>CONT-06</span></td>
-                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Contraste CLAHE</td>
-                    <td style='padding: 10px 14px; text-align: center;'>
-                        {f"<span style='background-color: rgba(236, 72, 153, 0.12); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(236, 72, 153, 0.15);'>ACTIVO</span>" if clahe_clip > 0.0 else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>DESACTIVADO</span>"}
-                    </td>
-                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{f"Clip={clahe_clip:.1f}, Rejilla={clahe_grid}x{clahe_grid}" if clahe_clip > 0 else "Apagado"}</td>
+                <tr style='background-color: transparent; border: none;'>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #94a3b8; text-align: center; border: none;'>CLAHE Local:</td>
+                    <td style='padding: 10px 14px; font-weight: 600; color: #38bdf8; text-align: center; border: none;'>{"Clip=" + f"{clahe_clip:.1f}" + ", Rejilla=" + str(clahe_grid) + "x" + str(clahe_grid) if clahe_clip > 0 else "Desactivado"}</td>
                 </tr>
                 
                 <!-- Fila 7 -->
-                <tr style='background-color: rgba(255, 255, 255, 0.02);'>
-                    <td style='padding: 10px 14px; text-align: left;'><span style='font-family: monospace; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: #cbd5e1; font-size: 11px; font-weight: 600;'>ENH-07</span></td>
-                    <td style='padding: 10px 14px; font-weight: 500; color: #e2e8f0; text-align: left;'>Realce de Bordes</td>
-                    <td style='padding: 10px 14px; text-align: center;'>
-                        {f"<span style='background-color: rgba(6, 182, 212, 0.12); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.25); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block; box-shadow: 0 0 6px rgba(6, 182, 212, 0.15);'>REALZADO</span>" if edge_alpha > 0.0 else "<span style='background-color: rgba(148, 163, 184, 0.12); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px; display: inline-block;'>DESACTIVADO</span>"}
-                    </td>
-                    <td style='padding: 10px 14px; text-align: right; font-weight: 600; color: #38bdf8;'>{f"{edge_filter} (a={edge_alpha:.2f})" if edge_alpha > 0 else "Apagado"}</td>
+                <tr style='background-color: rgba(255, 255, 255, 0.02); border: none;'>
+                    <td style='padding: 10px 14px; font-weight: 500; color: #94a3b8; text-align: center; border: none;'>Realce Gradiente:</td>
+                    <td style='padding: 10px 14px; font-weight: 600; color: #38bdf8; text-align: center; border: none;'>{f"{edge_filter} (Ganancia={edge_alpha:.2f})" if edge_alpha > 0 else "Desactivado"}</td>
                 </tr>
             </table>
         """
         
-        # Advertencia o recomendación clínica para cargas libres
+        # Advertencia o recomendación clínica para cargas libres (del mismo tamaño, texto alineado a la izq)
         if not is_example:
             report_html += """
-            <div style='padding: 14px; border-radius: 10px; background-color: rgba(30, 41, 59, 0.3); border: 1px solid rgba(51, 65, 85, 0.25); font-size: 12px; color: #cbd5e1; line-height: 1.5; text-align: center; max-width: 95%; margin: 0 auto;'>
+            <div style='padding: 14px; border-radius: 10px; background-color: rgba(30, 41, 59, 0.3); border: 1px solid rgba(51, 65, 85, 0.25); font-size: 12px; color: #cbd5e1; line-height: 1.5; text-align: left; width: 100%; box-sizing: border-box;'>
                 💡 <b>Guía de Triage para Imágenes Externas:</b><br/>
                 La localización automática por Bounding Box interactivo está reservada para el dataset de control. 
                 Utilice el realce de bordes <b>Laplaciano</b> (Ganancia 0.35 - 0.50) para verificar discontinuidades en la corteza ósea de forma visual.
@@ -425,17 +396,18 @@ def process_and_diagnose(
             """
         else:
             report_html += """
-            <div style='padding: 14px; border-radius: 10px; background-color: rgba(30, 27, 75, 0.35); border: 1px solid rgba(49, 46, 129, 0.3); font-size: 12px; color: #a5b4fc; line-height: 1.5; text-align: center; max-width: 95%; margin: 0 auto;'>
+            <div style='padding: 14px; border-radius: 10px; background-color: rgba(30, 27, 75, 0.35); border: 1px solid rgba(49, 46, 129, 0.3); font-size: 12px; color: #a5b4fc; line-height: 1.5; text-align: left; width: 100%; box-sizing: border-box;'>
                 🎯 <b>Localización Activa:</b><br/>
                 El Bounding Box clínico muestra la ubicación exacta de la sospecha en la base de datos científica. Puede rotar la placa y la caja se adaptará.
             </div>
             """
             
         report_html += """
-            <div style='font-size: 11px; color: #6b7280; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px; margin-top: 12px; line-height: 1.5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; max-width: 90%; margin: 0 auto;'>
-                <div style="font-size: 16px; margin-bottom: 2px;">⚠️</div>
+            <!-- Descargo de responsabilidad clínica (del mismo tamaño, texto alineado a la izq con triángulo al inicio) -->
+            <div style='font-size: 11px; color: #6b7280; text-align: left; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px; margin-top: 12px; line-height: 1.5; display: flex; align-items: flex-start; gap: 8px; width: 100%; box-sizing: border-box;'>
+                <span style="font-size: 14px; flex-shrink: 0; color: #eab308; margin-top: 1px;">⚠️</span>
                 <div>
-                    <b>Descargo de Responsabilidad Clínica:</b><br/>Este sistema es un prototipo con fines educativos y de investigación científica en PDI. No constituye un diagnóstico médico vinculante.
+                    <b>Descargo de Responsabilidad Clínica:</b> Este sistema es un prototipo con fines educativos y de investigación científica en PDI. No constituye un diagnóstico médico vinculante.
                 </div>
             </div>
         </div>
