@@ -19,6 +19,8 @@ Este repositorio contiene el MVP de un asistente de diagnóstico asistido por IA
 *   **Eduardo Farfán** (Desarrollo Individual)
 *   **Materia:** Procesamiento Digital de Imágenes
 *   **Cátedra/Institución:** Tecnicatura Superior en Ciencias de Datos e IA (IFTS24)
+*   **Profesor:** Matias Barreto
+*   **Ayudante de Cátedra:** Cynthia Villagra
 
 ---
 
