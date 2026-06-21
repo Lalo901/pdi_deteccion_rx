@@ -1,13 +1,12 @@
-.venv/
+.git
+.gitignore
+.venv
 __pycache__/
 *.pyc
 .cache/
 .ipynb_checkpoints/
-*.task
 *.log
-resultados_test_pdi/
-test_pdi.py
-LSGonzález-TFG-IC-2021.pdf
+*.pdf
 implementation_plan.md
 task.md
 walkthrough.md
