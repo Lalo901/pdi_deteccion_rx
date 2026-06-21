@@ -39,8 +39,6 @@ pdi_deteccion_rx/
 │   ├── externo_sano_neonato_1.jpg al 2.jpg
 │   ├── externo_frac_neonato_1.jpg
 │   └── externo_frac_pediatrico_1.jpg al 2.jpg
-├── implementation_plan.md      # Plan de implementación técnica (mentor)
-├── deteccionRx.md              # Directrices del proyecto y cronograma académico
 ├── tecnica_procesing.md        # Guía teórica y conceptos de PDI para la defensa
 ├── README.md                   # Este archivo (Metadatos de Hugging Face y documentación)
 ├── app.py                      # Interfaz en Gradio y orquestación del flujo
