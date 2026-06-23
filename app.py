@@ -125,7 +125,10 @@ def predict_fracture(image_np):
         score = float(top_pred["score"])
         
         # Mapear a etiquetas amigables clínicas
-        if "frac" in label:
+        # Validamos que 'fracture' no esté precedido por negaciones
+        if any(neg in label for neg in ["not", "non", "un", "no_fracture", "normal"]):
+            return "SIN FRACTURA (SANO) ✅", score
+        elif "fracture" in label or "fractured" in label:
             return "FRACTURA DETECTADA ⚠️", score
         else:
             return "SIN FRACTURA (SANO) ✅", score
@@ -274,8 +277,9 @@ def process_and_diagnose(
                     # Forzar detección si la IA tiene un falso negativo en los ejemplos
                     diag_label = "FRACTURA DETECTADA ⚠️"
         else:
-            # Inferencia pura para imágenes externas subidas por el usuario
-            diag_label, diag_score = predict_fracture(pdi_img)
+            # Inferencia pura para imágenes externas subidas por el usuario. 
+            # IMPORTANTE: Se pasa 'geom_img' (cruda) y no 'pdi_img' para no confundir a la IA con los filtros.
+            diag_label, diag_score = predict_fracture(geom_img)
 
         # 6. Dibujar anotaciones directamente en el canvas procesado (OpenCV)
         pdi_img_rgb = cv2.cvtColor(pdi_img, cv2.COLOR_GRAY2RGB)
